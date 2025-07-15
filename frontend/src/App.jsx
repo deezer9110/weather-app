@@ -1,7 +1,6 @@
 import "./css/App.css";
 
 import Home from "./pages/Home";
-import Search from "./pages/Search";
 import SavedLocations from "./pages/SavedLocations";
 import NavBar from "./components/NavBar";
 
@@ -15,7 +14,6 @@ function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/" element={<Search />} />
           <Route path="/" element={<SavedLocations />} />
         </Routes>
       </main>
