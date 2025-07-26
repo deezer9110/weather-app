@@ -1,11 +1,13 @@
+import "../css/MainWeather.css";
+
 function MainWeather({ weather }) {
   return (
     <div>
-      <div className="weather-details">
+      <div className="main-weather-details">
         <div className="weather-icon">
           <img src={weather.icon} alt={weather.type} />
         </div>
-        <div className="weather-text">
+        <div className="main-weather-info">
           <h3>{weather.type}</h3>
           <h3>{weather.temp}</h3>
           <p>Precipitation: {weather.prec}</p>
@@ -14,9 +16,7 @@ function MainWeather({ weather }) {
           <p>UV: {weather.uv}</p>
         </div>
       </div>
-      <div className="temp-graph">
-
-      </div>
+      <div className="temp-graph"></div>
     </div>
   );
 }

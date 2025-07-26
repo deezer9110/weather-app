@@ -1,0 +1,25 @@
+.home {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.main {
+  border-radius: 25px;
+  width: 70%;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  border: solid;
+  border-color: white;
+}
+
+.daily {
+  border-radius: 25px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
