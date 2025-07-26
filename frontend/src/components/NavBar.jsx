@@ -15,6 +15,9 @@ function NavBar() {
       <div className="nav-brand">
         <Link to="/">WEATHER APP</Link>
       </div>
+      <div className="nav-location">
+        <h1></h1>
+      </div>
       <div className="nav-links">
         <Link to="/" className="nav-link">
           HOME
