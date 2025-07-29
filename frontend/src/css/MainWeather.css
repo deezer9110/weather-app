@@ -1,3 +1,6 @@
 .main-weather-details {
-    border: none;
+    background-color: #4B646C;
+    border: solid white;
+    border-radius: 25px;
+    margin: 1rem;
 }

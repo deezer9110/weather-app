@@ -1,5 +1,7 @@
 .node-weather-details {
+  background-color: #092549;
   border-color: white;
   border-radius: 25px;
   border: solid;
+  margin: 1rem;
 }

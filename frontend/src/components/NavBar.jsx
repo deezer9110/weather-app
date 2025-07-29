@@ -12,11 +12,17 @@ function NavBar() {
 
   return (
     <nav className="nav">
-      <div className="nav-brand">
-        <Link to="/">WEATHER APP</Link>
-      </div>
-      <div className="nav-location">
-        <h1></h1>
+      <div className="nav-left">
+        <div className="nav-brand">
+          <h2>
+            <Link to="/">WEATHER APP</Link>
+          </h2>
+        </div>
+        <div className="vertical-line"></div>
+        <div className="nav-location">
+          <h3>London, UK</h3>
+          <h4>29/07/2025</h4>
+        </div>
       </div>
       <div className="nav-links">
         <Link to="/" className="nav-link">
@@ -33,7 +39,9 @@ function NavBar() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button type="submit" className="search-button">SEARCH</button>
+          <button type="submit" className="search-button">
+            SEARCH
+          </button>
         </form>
       </div>
     </nav>

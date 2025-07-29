@@ -1,10 +1,17 @@
 import WeatherNode from "../components/WeatherNode";
 import MainWeather from "../components/MainWeather";
 
-import "../css/Home.css"
+import "../css/Home.css";
 
 function Home() {
-  const days = [];
+  const days = [
+    {
+      id: 1,
+    },
+    {
+      id: 2,
+    },
+  ];
 
   return (
     <div className="home">
@@ -23,7 +30,7 @@ function Home() {
       </div>
       <div className="daily">
         {days.map((day) => (
-          <WeatherNode weather = {day} key = {day.date} />
+          <WeatherNode weather={day} key={day.date} />
         ))}
       </div>
     </div>
