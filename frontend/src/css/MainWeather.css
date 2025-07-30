@@ -1,6 +1,45 @@
+.main-weather {
+  padding: 2rem;
+  background-color: #4b646c;
+  border: solid white;
+  border-radius: 25px;
+  margin: 1rem;
+}
+
 .main-weather-details {
-    background-color: #4B646C;
-    border: solid white;
-    border-radius: 25px;
-    margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.main-weather-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 33.33%;
+  margin: 1rem;
+  vertical-align: center;
+}
+
+.main-weather-minor img {
+  color: white;
+  width: 20px;
+  height: 20px;
+}
+
+.main-weather-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.main-weather-major {
+  justify-content: space-evenly;
+}
+
+.temperature-details {
+}
+
+.main-weather-minor {
 }

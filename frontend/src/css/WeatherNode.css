@@ -1,7 +1,26 @@
 .node-weather-details {
   background-color: #092549;
-  border-color: white;
   border-radius: 25px;
-  border: solid;
+  border: solid white;
   margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.node-weather-col {
+  margin: 1rem;
+}
+
+.node-weather-icon {
+  width: 35%;
+}
+
+.node-weather-info {
+  width: 55%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;;
 }

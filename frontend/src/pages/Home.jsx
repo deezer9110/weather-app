@@ -19,10 +19,10 @@ function Home() {
         <MainWeather
           weather={{
             icon: 23,
-            type: "cloudy",
+            type: "CLOUDY",
             temp: 23,
             prec: 20,
-            humidity: 0.8,
+            humidity: 80,
             windSpeed: 12,
             uv: 0.3,
           }}

@@ -5,14 +5,17 @@ function WeatherNode({weather}) {
 
     return (
         <div className="node-weather-details">
-            <div className="weather-icon">
-                <h1>{weather.date}</h1>
-                <img src={weather.icon} alt={weather.type} />
+            <div className="weather-icon node-weather-col">
+                <h3>{weather.date}DAY, yyyy/mm/dd</h3>
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt={weather.type} />
             </div>
-            <div className="node-weather-info">
-                <h3>{weather.type}</h3>
-                <h3>{weather.temp}</h3>
-                <h3>Precipitation: {weather.prec}</h3>
+            <div className="node-weather-info node-weather-col">
+                <h4>{weather.type}Cloudy</h4>
+                <h4>{weather.temp}°C</h4>
+                <h5>Precipitation: {weather.prec}%</h5>
+                <h5>UV: </h5>
+                <h5>Wind: kmh</h5>
+                <h5>Humidity: %</h5>
             </div>
         </div>
     )

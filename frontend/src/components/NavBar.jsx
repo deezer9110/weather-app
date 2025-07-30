@@ -18,13 +18,12 @@ function NavBar() {
             <Link to="/">WEATHER APP</Link>
           </h2>
         </div>
-        <div className="vertical-line"></div>
         <div className="nav-location">
-          <h3>London, UK</h3>
-          <h4>29/07/2025</h4>
+          <h4>DAY, yyyy/mm/dd</h4>
+          <h2>LONDON, UK</h2>
         </div>
       </div>
-      <div className="nav-links">
+      <div className="nav-right">
         <Link to="/" className="nav-link">
           HOME
         </Link>
@@ -34,12 +33,12 @@ function NavBar() {
         <form onSubmit={handleSearch} className="nav-link">
           <input
             type="text"
-            placeholder="Search for location..."
-            className="search-input"
+            placeholder="SEARCH..."
+            className="nav-search-input"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button type="submit" className="search-button">
+          <button type="submit" className="nav-search-button">
             SEARCH
           </button>
         </form>
