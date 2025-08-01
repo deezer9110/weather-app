@@ -1,43 +1,31 @@
 import "../css/MainWeather.css";
 
-function MainWeather({ weather }) {
+function MainWeather({ current }) {
   return (
     <div className="main-weather">
       <div className="main-weather-details">
         <div className="main-weather-icon main-weather-col">
           <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt={weather.type}
+            src={`https://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`}
+            alt={current.weather[0].main}
           />
         </div>
         <div className="main-weather-major main-weather-col">
-          <h1>{weather.type}</h1>
-          <h1>{weather.temp}°C</h1>
+          <h1>{current.weather.main}</h1>
+          <h1>{current.temp}°C</h1>
           <div className="temperature-details">
-            <table>
-              <tr>
-                <h2>Feels like {weather.feelslike}°C</h2>
-              </tr>
-              <tr>
-                <td>
-                  <h3>↑{weather.high}°C</h3>
-                </td>
-                <td>
-                  <h3>↓{weather.low}°C</h3>
-                </td>
-              </tr>
-            </table>
+            <h2>Feels like: {current.feels_like}°C</h2>
+            <div>{current.weather.description}</div>
           </div>
         </div>
         <div className="main-weather-minor main-weather-col">
-          <p>Precipitation: {weather.prec}%</p>
-          <p>Humidity: {weather.humidity}%</p>
-          <p>Wind speed: {weather.windSpeed}kmh</p>
-          <p>Sunrise: </p>
-          <p>Sunset: </p>
+          <p>Precipitation: {current.humidity}%</p>
+          <p>Humidity: {current.humidity}%</p>
+          <p>Wind speed: {current.wind_speed}kmh</p>
+          <p>Sunrise: {current.sunrise}</p>
+          <p>Sunset: {current.sunset}</p>
         </div>
       </div>
-      <div className="main-weather-temp-graph">ello</div>
     </div>
   );
 }
