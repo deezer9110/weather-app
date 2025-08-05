@@ -18,6 +18,7 @@ function Home() {
     const loadWeather = async () => {
       try {
         const weather = await getWeatherDetails(51.5, 0.12);
+        setDays(weather.daily);
         setCurrent(weather.current);
         setHours(weather.hourly);
         setDays(weather.daily);
@@ -39,21 +40,22 @@ function Home() {
       {loading ? (
         <div className="loading">Loading...</div>
       ) : (
-        <div>
+        <>
           <div className="main">
             <MainWeather current={current} />
             <TempGraph />
           </div>
-        </div>
+
+          <div className="daily">
+            {
+            days.map((day) => (
+              <WeatherNode day={day} key={day.dt} />
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
 }
 
 export default Home;
-
-/*<div className="daily">
-            {days.map((day) => (
-              <WeatherNode day={day} key={day.dt} />
-            ))}
-          </div>*/

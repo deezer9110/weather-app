@@ -14,7 +14,7 @@ export const getWeatherDetails = async(lat, lon) => {
     const url = `${BASE_URL}lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
 
     try {
-    const response = await fetch(url);
+    const response = await fetch('/examplecall.json');
 
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
