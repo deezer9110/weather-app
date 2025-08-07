@@ -37,7 +37,7 @@ export const getPosition = async () => {
     if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(
         (position) => resolve(position), 
-        (error) => reject("Couldn't get location"))
+        (error) => reject(new Error("Couldn't get location")))
     } else {
       reject("Did not get permission to use geolocation")
     }
@@ -47,7 +47,7 @@ export const getPosition = async () => {
 export const getUserWeather = async () => {
   try {
   const position = await getPosition();
-  return getWeatherDetails(position.coords.latitude, position.coords.longitude)
+  return await getWeatherDetails(position.coords.latitude, position.coords.longitude)
   } catch(err){
     alert(err)
     return null

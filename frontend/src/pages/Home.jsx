@@ -19,7 +19,6 @@ function Home() {
     const loadWeather = async () => {
       try {
         const weather = await getWeatherDetails(51.5, 0.12);
-        setDays(weather.daily);
         setCurrent(weather.current);
         setHours(weather.hourly);
         setDays(weather.daily);
