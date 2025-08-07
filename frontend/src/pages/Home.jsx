@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import WeatherNode from "../components/WeatherNode";
 import MainWeather from "../components/MainWeather";
 import TempGraph from "../components/TempGraph";
-import { getWeatherDetails } from "../services/api";
+import { getWeatherDetails } from "../services/weaApi";
+import { getUserWeather } from "../services/weaApi";
 
 import "../css/Home.css";
 

@@ -1,9 +1,6 @@
 import "../css/MainWeather.css";
 
 function MainWeather({ current }) {
-
-  const timestamp = current.dt;
-
   return (
     <div className="main-weather">
       <div className="main-weather-icon main-weather-col">

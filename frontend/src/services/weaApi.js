@@ -15,6 +15,7 @@ export const getWeatherDetails = async(lat, lon) => {
 
     try {
     const response = await fetch('/examplecall.json');
+    // const response = await fetch(url);
 
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
@@ -29,6 +30,29 @@ export const getWeatherDetails = async(lat, lon) => {
     return null;
   }
 }
+
+
+export const getPosition = async () => {
+  return new Promise ((resolve, reject) => {
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(
+        (position) => resolve(position), 
+        (error) => reject("Couldn't get location"))
+    } else {
+      reject("Did not get permission to use geolocation")
+    }
+  })
+}
+
+export const getUserWeather = async () => {
+  try {
+  const position = await getPosition();
+  return getWeatherDetails(position.coords.latitude, position.coords.longitude)
+  } catch(err){
+    alert(err)
+    return null
+  } 
+} 
 
 export const getWeatherDetailsSearch = async() => {
 

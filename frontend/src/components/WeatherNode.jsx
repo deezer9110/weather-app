@@ -1,6 +1,7 @@
 import "../css/WeatherNode.css";
 
 function WeatherNode({ day }) {
+
   return (
     <div className="node-weather-details">
       <div className="weather-icon node-weather-col">
