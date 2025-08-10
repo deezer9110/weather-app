@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import WeatherNode from "../components/WeatherNode";
 import MainWeather from "../components/MainWeather";
 import TempGraph from "../components/TempGraph";
-import { getWeatherDetails } from "../services/weaApi";
+// import { getWeatherDetails } from "../services/weaApi";
 import { getUserWeather } from "../services/weaApi";
 
 import "../css/Home.css";
@@ -18,7 +18,7 @@ function Home() {
   useEffect(() => {
     const loadWeather = async () => {
       try {
-        const weather = await getWeatherDetails(51.5, 0.12);
+        const weather = await getUserWeather();
         setCurrent(weather.current);
         setHours(weather.hourly);
         setDays(weather.daily);
