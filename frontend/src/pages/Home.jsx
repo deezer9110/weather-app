@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import WeatherNode from "../components/WeatherNode";
 import MainWeather from "../components/MainWeather";
 import TempGraph from "../components/TempGraph";
@@ -23,11 +21,15 @@ function Home() {
             <TempGraph hours={hours} />
           </div>
 
-          <div className="daily">
-            {days.map((day) => (
-              <WeatherNode day={day} key={day.dt} />
-            ))}
-          </div>
+          {days.length === 0 ? (
+            <p>No forecast detected!</p>
+          ) : (
+            <div className="daily">
+              {days.map((day) => (
+                <WeatherNode day={day} key={day.dt} />
+              ))}
+            </div>
+          )}
         </>
       )}
     </div>

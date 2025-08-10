@@ -2,8 +2,14 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../css/NavBar.css";
 
+import { useWeatherContext } from "../contexts/WeatherContext";
+import { getDate } from "../services/generalApi";
+
 function NavBar() {
   const [searchQuery, setSearchQuery] = useState("");
+
+  const { current } = useWeatherContext();
+  const dateString = getDate(current.dt);
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -19,7 +25,7 @@ function NavBar() {
           </h2>
         </div>
         <div className="nav-location">
-          <h4>DAY, yyyy/mm/dd</h4>
+          <h4>{dateString}</h4>
           <h2>LONDON, UK</h2>
         </div>
       </div>
