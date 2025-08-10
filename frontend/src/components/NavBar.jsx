@@ -9,7 +9,7 @@ function NavBar() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const { current } = useWeatherContext();
-  const dateString = getDate(current.dt);
+  const dateString = current ? getDate(current.dt) : "";
 
   const handleSearch = async (e) => {
     e.preventDefault();
