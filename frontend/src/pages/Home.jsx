@@ -3,35 +3,12 @@ import { useState, useEffect } from "react";
 import WeatherNode from "../components/WeatherNode";
 import MainWeather from "../components/MainWeather";
 import TempGraph from "../components/TempGraph";
-// import { getWeatherDetails } from "../services/weaApi";
-import { getUserWeather } from "../services/weaApi";
+import { useWeatherContext } from "../contexts/WeatherContext";
 
 import "../css/Home.css";
 
 function Home() {
-  const [current, setCurrent] = useState([]);
-  const [days, setDays] = useState([]);
-  const [hours, setHours] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadWeather = async () => {
-      try {
-        const weather = await getUserWeather();
-        setCurrent(weather.current);
-        setHours(weather.hourly);
-        setDays(weather.daily);
-      } catch (err) {
-        console.log(err);
-        setError("Failed to load Main Weather");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadWeather();
-  }, []);
+  const { weather, current, days, hours, error, loading } = useWeatherContext();
 
   return (
     <div className="home">
@@ -43,12 +20,11 @@ function Home() {
         <>
           <div className="main">
             <MainWeather current={current} />
-            <TempGraph />
+            <TempGraph hours={hours} />
           </div>
 
           <div className="daily">
-            {
-            days.map((day) => (
+            {days.map((day) => (
               <WeatherNode day={day} key={day.dt} />
             ))}
           </div>
