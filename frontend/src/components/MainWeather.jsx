@@ -1,4 +1,5 @@
 import "../css/MainWeather.css";
+import { getDateString } from "../services/generalApi";
 
 function MainWeather({ current }) {
   return (
@@ -18,8 +19,8 @@ function MainWeather({ current }) {
         <p>Precipitation: {current.humidity}%</p>
         <p>Humidity: {current.humidity}%</p>
         <p>Wind speed: {current.wind_speed}kmh</p>
-        <p>Sunrise: {current.sunrise}</p>
-        <p>Sunset: {current.sunset}</p>
+        <p>Sunrise: {current?.sunrise ? getDateString(current.sunrise, true) : "N/A"}</p>
+        <p>Sunset: {current?.sunset ? getDateString(current.sunset, true) : "N/A"}</p>
       </div>
     </div>
   );

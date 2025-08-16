@@ -1,7 +1,17 @@
  
 
-export const getDateString = (timestamp) => {
-  const options = {
+export const getDateString = (timestamp, justTime = false) => {
+
+  let options;
+
+  if(justTime == true) {
+    options = {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    }
+  } else {
+    options = {
         weekday: 'short',
         day: '2-digit',
         month: '2-digit',
@@ -10,7 +20,7 @@ export const getDateString = (timestamp) => {
         minute: '2-digit',
         hour12: false
       }
-
+    }
   var date = new Date(timestamp*1000)
   var dateStr = date.toLocaleString("en-UK", options);
   return dateStr;
