@@ -8,8 +8,7 @@ import { getDate } from "../services/generalApi";
 function NavBar() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const { current } = useWeatherContext();
-  const dateString = current ? getDate(current.dt) : "";
+  const { currentDt } = useWeatherContext();
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -25,7 +24,7 @@ function NavBar() {
           </h2>
         </div>
         <div className="nav-location">
-          <h4>{dateString}</h4>
+          <h4>{currentDt}</h4>
           <h2>LONDON, UK</h2>
         </div>
       </div>
