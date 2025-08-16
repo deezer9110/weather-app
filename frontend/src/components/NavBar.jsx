@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import "../css/NavBar.css";
 
 import { useWeatherContext } from "../contexts/WeatherContext";
-import { getDate } from "../services/generalApi";
+import { getDateString } from "../services/generalApi";
 
 function NavBar() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const { currentDt } = useWeatherContext();
+  const { current } = useWeatherContext();
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ function NavBar() {
           </h2>
         </div>
         <div className="nav-location">
-          <h4>{currentDt}</h4>
+          <h4>{current?.dt ? getDateString(current.dt) : ""}</h4>
           <h2>LONDON, UK</h2>
         </div>
       </div>

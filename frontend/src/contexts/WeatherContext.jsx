@@ -1,6 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import { getUserWeather } from "../services/weaApi";
-import { getDate } from "../services/generalApi";
 
 const WeatherContext = createContext();
 
@@ -13,19 +12,17 @@ export const WeatherProvider = ({ children }) => {
   const [hours, setHours] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [currentDt, setDt] = useState(null);
+  const [minutes, setMinutes] = useState([]);
 
   useEffect(() => {
     updateWeather();
-    const interval = setInterval(updateWeather, 300000);
+    const interval = setInterval(updateWeather, 3600000);
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    currentDt = updateDate();
-    const interval = setInterval(updateDate, 60000)
-    return () => clearInterval(interval)
-  })
+    updateDate();
+  }, [minutes]);
 
   const updateWeather = async () => {
     setLoading(true);
@@ -36,8 +33,7 @@ export const WeatherProvider = ({ children }) => {
       setCurrent(weather.current);
       setHours(weather.hourly);
       setDays(weather.daily);
-      setDt(getDate(current.dt));
-      console.log(currentDt)
+      setMinutes(weather.minutely);
     } catch (err) {
       setError("Failed to load Main Weather", err.message);
     } finally {
@@ -45,29 +41,33 @@ export const WeatherProvider = ({ children }) => {
     }
   };
 
-  updateDate() = () => {
-    let date = new Date(currentDt)
-    date.setMinutes(date.getMinutes() + 1);
-    options = {
-      weekday: 'Short',
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false
-    }
-    return date.toLocaleString("en-GB", options)
+  const updateDate = () => {
+    let increment = 0
+
+    const interval = setInterval(() => {
+      try{
+        setCurrent(prev => ({ ...prev, dt: minutes[increment]?.dt }));
+        increment++
+      } catch(err){
+        console.log(err)
+      } finally {
+        if (increment >= minutes.length) {
+          clearInterval(interval)
+        }
+      }
+    }, 60000)
+
+    return () => clearInterval(interval)
   }
 
   const value = {
     weather,
     current,
+    minutes,
     hours,
     days,
     error,
     loading,
-    currentDt
   };
 
   return (

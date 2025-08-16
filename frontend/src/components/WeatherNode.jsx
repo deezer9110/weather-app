@@ -1,17 +1,15 @@
 import "../css/WeatherNode.css";
-import { getDate } from "../services/generalApi";
+import { getDateString } from "../services/generalApi";
 
 function WeatherNode({ day }) {
-
-  const dateString = day ? getDate(day.dt) : "";
 
   return (
     <div className="node-weather-details">
       <div className="weather-icon node-weather-col">
-        <h3>{dateString}</h3>
+        <h3>{day?.dt ? getDateString(day.dt) : ""}</h3>
         <img
           src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
-          alt={day.weather.main}
+          alt={day?.dt ? getDateString(day.dt) : ""}
         />
       </div>
       <div className="node-weather-info node-weather-col">
